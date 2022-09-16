@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
-contract PfProjectOne11 {
+contract PfProjectOne22 {
 address owner;
 
  string public constant name = "Sponge Bob Token"; //Tokens Name

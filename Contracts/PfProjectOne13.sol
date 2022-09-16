@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.0 <0.9.0;
 
-contract PfProjectOne12 {
+contract PfProjectOne13 {
 address owner;
 
  string public constant name = "Whis Token"; //Tokens Name
