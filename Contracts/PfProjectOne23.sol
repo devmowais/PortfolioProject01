@@ -60,14 +60,22 @@ address owner;
        return approved[_owner][spender];
     }
  
-//*******Minting*******//
+    //*******Minting*******//
      function Mint(uint quantity) public onlyOwner returns(uint){
         totalSupply += quantity; //totalSupply = totalSupply + quantity
         balances[msg.sender] += quantity; //balances[msg.sender] = balances[msg.sender] + quantity
         return totalSupply;
     }
+    //This function burns the entered amount from the totalSupply except 1mn tokens
+    function burn(address user, uint amount) public onlyOwner returns(uint) {
+        require(balances[user] >= amount,"You have enough tokens to burn"); //check
+        balances[user] -= amount; // balances[user] = balances[user] - amount
+        totalSupply -= amount; //totalSupply = totalSupply - amount
+        require(totalSupply >= 1000000, "You can't burn more tokens");
+        return totalSupply;
+    }
 
- //********Events*******//
+    //********Events*******//
     event Transfer(address indexed recipient, address indexed to, uint amount);
     event Approval(address indexed from, address indexed to, uint amount);
 }
