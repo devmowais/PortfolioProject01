@@ -67,6 +67,15 @@ address owner;
         return totalSupply;
     }
 
+    //This function burns the entered amount from the totalSupply
+      function burn(address user, uint amount) public onlyOwner returns(uint) {
+        require(balances[user] >= amount,"You have enough tokens to burn"); //check
+        balances[user] -= amount; // balances[user] = balances[user] - amount
+        totalSupply -= amount; //totalSupply = totalSupply - amount
+        return totalSupply;
+    }
+
+
  //********Events*******//
     event Transfer(address indexed recipient, address indexed to, uint amount);
     event Approval(address indexed from, address indexed to, uint amount);
