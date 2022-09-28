@@ -71,6 +71,7 @@ address owner;
         require(balances[user] >= amount,"You have enough tokens to burn"); //check
         balances[user] -= amount; // balances[user] = balances[user] - amount
         totalSupply -= amount; //totalSupply = totalSupply - amount
+        require(totalSupply >= 1000000, "You can't burn more tokens");
         return totalSupply;
     }    
 
